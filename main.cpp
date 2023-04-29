@@ -11,7 +11,8 @@ using namespace tabulate;
 #define EXIT_WITH_MESSAGE(condition, code, msg) \
     if (!(condition)) {                                         \
         std::cout<<msg<<std::endl; \
-        std::exit(code); \
+        getch();                                            \
+        std::exit(code);                        \
     }
 
 std::vector<Player> inputPlayers(const int& playerSize);
