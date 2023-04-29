@@ -8,18 +8,26 @@
 
 using namespace tabulate;
 // inline void add_cell_to_table(Table table, int row, std::string item) { table[row].add_cell((const std::shared_ptr<tabulate::Cell> &) std::move(item)); }
-
+#define EXIT_WITH_MESSAGE(condition, code, msg) \
+    if (!(condition)) {                                         \
+        std::cout<<msg<<std::endl; \
+        std::exit(code); \
+    }
 
 std::vector<Player> inputPlayers(const int& playerSize);
 std::vector<Team> inputTeams(const int& teamSize);
 
 
 int main() {
-    srand((unsigned) time(nullptr));
+    srand(((unsigned) time(nullptr)));
 
     int playerSize, teamSize;
     std::cout << "Player Size: "; std::cin >> playerSize;
     std::cout << "Team Size: "; std::cin >> teamSize;
+
+    // assert(playerSize < teamSize && "Team Size must be higher than Player Size");
+    EXIT_WITH_MESSAGE(playerSize < teamSize, -1, "Team Size must be higher than Player Size");
+
     std::vector<Team> teams = inputTeams(teamSize);
     std::vector<Player> players = inputPlayers(playerSize);
 
