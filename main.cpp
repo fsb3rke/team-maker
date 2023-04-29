@@ -3,8 +3,8 @@
 #include "header/Player.h"
 #include "header/Team.h"
 #include "tabulate/tabulate.hpp"
-#include <cstdlib>
 #include <conio.h>
+#include "header/marandom.h"
 
 using namespace tabulate;
 // inline void add_cell_to_table(Table table, int row, std::string item) { table[row].add_cell((const std::shared_ptr<tabulate::Cell> &) std::move(item)); }
@@ -50,7 +50,7 @@ int main() {
         if (teamIndex > teamSize-1) teamIndex = 0;
 
         // Select a random player for emplace to the team which as we have selected randomly
-        int randPlayerIndex = rand() % players.size();
+        int randPlayerIndex = my_rand(0, (int)players.size()-1);
 
         teams.at(teamIndex)
             .pushPlayer(
