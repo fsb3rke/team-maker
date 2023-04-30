@@ -16,7 +16,6 @@ public:
     inline std::vector<Player> getPlayers() { return this->players; }
 private:
     std::string name;
-    // TODO: ADD A VECTOR FOR PLAYERS WHO'S IN TEAM | COMPLETED
     std::vector<Player> players;
 };
 
