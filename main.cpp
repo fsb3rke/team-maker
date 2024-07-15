@@ -36,11 +36,17 @@ int main() {
     srand(((unsigned) time(nullptr)));
 
     int playerSize, teamSize;
-    std::cout << "Player Size: "; std::cin >> playerSize;
-    std::cout << "Team Size: "; std::cin >> teamSize;
+
+    try {
+        std::cout << "Player Size: "; std::cin >> playerSize;
+        std::cout << "Team Size: "; std::cin >> teamSize;
+    }
+    catch(const std::exception& e) {
+        return -1;
+    }
 
     // assert(playerSize < teamSize && "Team Size must be higher than Player Size");
-    EXIT_WITH_MESSAGE(playerSize <= teamSize, -1, "Team Size must be higher than Player Size");
+    EXIT_WITH_MESSAGE(teamSize <= playerSize, -1, "Player Size must be higher than Team Size");
 
     std::vector<Team> teams = input<Team>(teamSize);
     std::vector<Player> players = input<Player>(playerSize);

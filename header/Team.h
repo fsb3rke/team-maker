@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "Player.h"
+#include <vector>
 
 class Team {
 public:
